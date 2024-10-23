@@ -7,7 +7,7 @@ const cors = require("cors");
 const dotenv = require('dotenv/config');
 const { app, server } = require("./socket/socket.js"); // Importing app and server
 
-const port = process.env.PORT || 7000;
+const PORT = 7000;
 
 app.use(cors({
     origin: 'http://localhost:3000',
@@ -33,8 +33,8 @@ const DB = "mongodb://mongoadmin:mongoadmin@localhost:27017/chat-app?authSource=
 mongoose.connect(DB)
     .then(() => {
         console.log('DB connection successful');
-        server.listen(port, () => {
-            console.log(`Express Server listening on ${port}`);
+        server.listen(PORT, () => {
+            console.log(`Express Server listening on ${PORT}`);
         });
     })
     .catch(err => console.error(err));
